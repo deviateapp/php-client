@@ -11,16 +11,28 @@
             "email": "p.cross@live.co.uk"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/deviateapp/search"
+        }
+    ],
     "autoload": {
-	"psr-4": {
+	    "psr-4": {
             "Deviate\\Clients\\": "src/"
-	}
+	    }
     },
     "autoload-dev": {
-	"psr-4": {
+        "psr-4": {
             "Deviate\\Clients\\Tests\\": "tests/"
-	}
+        }
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "illuminate/support": "^5.8",
+        "guzzlehttp/guzzle": "^6.3@dev",
+        "deviateapp/search": "dev-master",
+        "illuminate/http": "^5.8",
+        "ramsey/uuid": "^3.7"
+    }
 }

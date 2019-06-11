@@ -39,7 +39,7 @@ abstract class AbstractApiException extends Exception implements Responsable
         return $this->errors;
     }
 
-    public function toResponse($request)
+    public function toResponse($request = null)
     {
         return new JsonResponse($this->toArray(), $this->getHttpStatus());
     }

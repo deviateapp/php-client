@@ -2,34 +2,32 @@
 
 namespace Deviate\Clients\Exceptions;
 
-use Deviate\Clients\Responses\ApiErrorResponse;
-
 class ApiException extends AbstractApiException
 {
-    private $original;
+    private $content;
 
-    public function __construct(ApiErrorResponse $original)
+    public function __construct(array $original)
     {
-        $this->original = $original;
+        $this->content = $original;
 
-        parent::__construct($this->original->get('description'));
+        parent::__construct($this->content['description']);
 
-        $this->id       = $this->original->get('id');
-        $this->errors   = $this->original->get('meta');
+        $this->id     = $this->content['id'];
+        $this->errors = $this->content['meta'];
     }
 
     public function getInternalCode(): int
     {
-        return $this->original->get('code');
+        return $this->content['code'];
     }
 
     protected function getHttpStatus(): int
     {
-        return $this->original->get('status');
+        return $this->content['status'];
     }
 
     protected function getTitle(): string
     {
-        return $this->original->get('title');
+        return $this->content['title'];
     }
 }

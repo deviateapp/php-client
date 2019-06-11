@@ -14,11 +14,6 @@ class ApiResponse extends AbstractApiResponse
         $this->response = $response;
     }
 
-    public function isSuccessful(): bool
-    {
-        return true;
-    }
-
     public function get(string $key, $default = null)
     {
         return Arr::get($this->response, $key, $default);

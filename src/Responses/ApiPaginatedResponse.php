@@ -11,21 +11,21 @@ class ApiPaginatedResponse extends ApiResponse implements ApiPaginatedResponseIn
 
     public function currentPage(): int
     {
-        return 1;
+        return $this->get('meta.current_page', 1);
     }
 
     public function totalPages(): int
     {
-        return 1;
+        return $this->get('meta.total_pages', 1);
     }
 
     public function totalRecords(): int
     {
-        return 1;
+        return $this->get('meta.total_records', 0);
     }
 
     public function perPage(): int
     {
-        return 1;
+        return $this->get('meta.per_page', 20);
     }
 }
